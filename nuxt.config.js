@@ -4,6 +4,7 @@ import { createClient } from './plugins/contentful.js'
 
 export default {
   mode: 'universal',
+  target: 'static',
   /*
   ** Headers of the page
   */
@@ -58,12 +59,5 @@ export default {
   env: {
     CTF_SPACE: process.env.CTF_SPACE,
     CTF_ACCESS_TOKEN: process.env.CTF_ACCESS_TOKEN
-  },
-  generate: {
-    async routes() {
-      const entries = await createClient().getEntries('blogPost')
-      const ctfPaths = entries.items.map(entry => `/posts/${entry.sys.id}`)
-      return [...ctfPaths];
-    }
   }
 }
