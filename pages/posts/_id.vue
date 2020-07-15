@@ -1,10 +1,8 @@
 <template>
-  <section class="container">
-    <h1>{{ post.fields.title }}</h1>
-    <div>
-      {{ post.fields.description }}
-    </div>
-  </section>
+  <div class="container">
+    <h1 class="title">{{ post.fields.title }}</h1>
+    <div class="content" v-html="$md.render(post.fields.body)"></div>
+  </div>
 </template>
 <script>
 import { createClient } from '~/plugins/contentful.js'

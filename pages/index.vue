@@ -1,12 +1,16 @@
 <template>
   <section class="container">
-    <ul>
-      <li v-for="(post, index) in posts" :key="index">
-        <nuxt-link :to="`/posts/${post.sys.id}`">
-          {{ post.fields.title }}
-        </nuxt-link>
-      </li>
-    </ul>
+    <h1 class="title">Articles</h1>
+    <div class="content">
+      <ul>
+        <li v-for="(post, index) in posts" :key="index" class="links">
+          <nuxt-link :to="`/posts/${post.sys.id}`">
+            {{ post.fields.title }}
+          </nuxt-link>
+        </li>
+      </ul>
+    </div>
+    
   </section>
 </template>
 <script>
