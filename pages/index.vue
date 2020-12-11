@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <h1 class="title">Articles</h1>
+    <h1 class="title">Posts</h1>
     <div class="content">
       <ul>
         <li v-for="(post, index) in posts" :key="index" class="links">
@@ -10,21 +10,20 @@
         </li>
       </ul>
     </div>
-    
   </section>
 </template>
 <script>
-import { createClient } from '~/plugins/contentful.js'
+import { createClient } from "~/plugins/contentful.js";
 
-const client = createClient()
+const client = createClient();
 export default {
   async asyncData({ params }) {
     const entries = await client.getEntries({
-      content_type: 'blogPost'
-    })
+      content_type: "blogPost",
+    });
     return {
-      posts: entries.items
-    }
-  }
-}
+      posts: entries.items,
+    };
+  },
+};
 </script>
