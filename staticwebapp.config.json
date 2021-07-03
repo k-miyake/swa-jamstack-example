@@ -2,7 +2,7 @@
   "responseOverrides": {
     "404": {
       "rewrite": "/200.html",
-      "statusCode": 404
+      "statusCode": 200
     }
   },
   "globalHeaders": {
