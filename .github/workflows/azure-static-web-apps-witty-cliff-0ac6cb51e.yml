@@ -27,7 +27,8 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
       - run: npm ci
-      - run: npm run generate
+      - run: npm run build
+      - run: npm run export
       - name: move swa config
         run: mv staticwebapp.config.json ./dist
 
@@ -36,7 +37,7 @@ jobs:
           name: vuedist
           path: dist
 
-  deploy_job:
+  build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed' && github.actor != 'dependabot[bot]')
     runs-on: ubuntu-latest
     needs: build
