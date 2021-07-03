@@ -13,11 +13,11 @@
     "export": "nuxt export"
   },
   "dependencies": {
-    "contentful": "^7.14.4",
-    "isomorphic-unfetch": "^3.0.0",
+    "contentful": "^8.4.2",
+    "isomorphic-unfetch": "^3.1.0",
     "@nuxtjs/bulma": "^1.2.7",
-    "@nuxtjs/markdownit": "^1.2.0",
-    "nuxt": "^2.13.0"
+    "@nuxtjs/markdownit": "^2.0.0",
+    "nuxt": "^2.15.7"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1"
