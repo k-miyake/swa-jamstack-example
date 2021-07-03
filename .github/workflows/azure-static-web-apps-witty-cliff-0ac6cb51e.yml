@@ -13,6 +13,8 @@ on:
 
 env:
   NODE_VERSION: "14.x"
+  CTF_SPACE: ${{ secrets.CTF_SPACE }}
+  CTF_ACCESS_TOKEN: ${{ secrets.CTF_ACCESS_TOKEN }}
 
 jobs:
   build:
@@ -32,7 +34,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: vuedist
-          path: ./dist/*
+          path: dist
 
   deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed' && github.actor != 'dependabot[bot]')
@@ -53,9 +55,6 @@ jobs:
           action: "upload"
           app_location: ""
           skip_app_build: true
-        env:
-          CTF_SPACE: ${{ secrets.CTF_SPACE }}
-          CTF_ACCESS_TOKEN: ${{ secrets.CTF_ACCESS_TOKEN }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
