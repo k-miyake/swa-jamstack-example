@@ -27,8 +27,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
       - run: npm ci
-      - run: npm run build
-      - run: npm run export
+      - run: npm run generate
       - name: move swa config
         run: mv staticwebapp.config.json ./dist
 
