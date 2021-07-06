@@ -9,7 +9,8 @@
     "serve": "nuxt serve",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "contentful:generate": "contentful-typescript-codegen --output contentful/generated/types.ts"
   },
   "dependencies": {
     "core-js": "^3.15.1",
@@ -20,8 +21,11 @@
     "nuxt": "^2.15.7"
   },
   "devDependencies": {
-    "@nuxtjs/dotenv": "^1.4.1",
+    "@contentful/rich-text-types": "^15.0.0",
     "@nuxt/types": "^2.15.7",
-    "@nuxt/typescript-build": "^2.1.0"
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "contentful-management": "^7.27.0",
+    "contentful-typescript-codegen": "^3.2.2"
   }
 }
