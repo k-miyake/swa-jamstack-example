@@ -9,8 +9,7 @@
     "serve": "nuxt serve",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt build && nuxt export",
-    "export": "nuxt export"
+    "generate": "nuxt generate"
   },
   "dependencies": {
     "contentful": "^8.4.2",
