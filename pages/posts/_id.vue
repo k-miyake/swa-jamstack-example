@@ -8,6 +8,7 @@
 import Vue from "vue";
 import { Entry } from "contentful";
 import { IBlogPostFields } from "@/contentful/generated/types";
+import MarkdownIt from "@nuxtjs/markdownit/dist/module";
 import { createClient } from "@/plugins/contentful.js";
 
 const client = createClient();
