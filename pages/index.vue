@@ -13,10 +13,13 @@
   </section>
 </template>
 <script lang="ts">
-import { createClient } from "~/plugins/contentful.js";
+import Vue from "vue";
+import { Entry } from "contentful";
+import { IBlogPostFields } from "@/contentful/generated/types";
+import { createClient } from "@/plugins/contentful.js";
 
 const client = createClient();
-export default {
+export default Vue.extend({
   async asyncData() {
     const entries = await client.getEntries({
       content_type: "blogPost"
@@ -24,6 +27,11 @@ export default {
     return {
       posts: entries.items
     };
+  },
+  data() {
+    return {
+      posts: [] as Entry<IBlogPostFields>[]
+    };
   }
-};
+});
 </script>

@@ -4,16 +4,24 @@
     <div class="content" v-html="$md.render(post.fields.body)"></div>
   </div>
 </template>
-<script>
-import { createClient } from '~/plugins/contentful.js'
+<script lang="ts">
+import Vue from "vue";
+import { Entry } from "contentful";
+import { IBlogPostFields } from "@/contentful/generated/types";
+import { createClient } from "@/plugins/contentful.js";
 
-const client = createClient()
-export default {
-  async asyncData({ params, payload }) {
-    const entry = await client.getEntry(params.id)
+const client = createClient();
+export default Vue.extend({
+  async asyncData({ params }) {
+    const entry = await client.getEntry(params.id);
     return {
       post: entry
-    }
+    };
+  },
+  data() {
+    return {
+      post: {} as Entry<IBlogPostFields>
+    };
   }
-}
+});
 </script>
